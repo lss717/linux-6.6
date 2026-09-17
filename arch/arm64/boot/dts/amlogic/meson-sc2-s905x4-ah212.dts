@@ -421,6 +421,8 @@
 
 	non-removable;
 	disable-wp;
+	no-sd;
+	no-mmc;
 
 	mmc-pwrseq = <&sdio_pwrseq>;
 	vmmc-supply = <&vdd_3v3>;
