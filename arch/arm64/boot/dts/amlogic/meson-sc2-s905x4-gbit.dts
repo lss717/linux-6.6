@@ -480,6 +480,16 @@
 	cd-inverted;
 	vmmc-supply = <&vdd_3v3>;
 	vqmmc-supply = <&vdd_1v8>;
+
+	/*
+	 * The vendor u-boot leaves the SD clock input (CLKID_SD_EMMC_B_CLK)
+	 * at ~997MHz when it boots from the SD slot. The MMC host's 7-bit
+	 * divider can then not reach the 400kHz init clock and probe fails
+	 * with -EINVAL. Pin this input to 24MHz so SD boot works no matter
+	 * which medium u-boot used.
+	 */
+	assigned-clocks = <&clkc CLKID_SD_EMMC_B_CLK>;
+	assigned-clock-rates = <24000000>;
 };
 
 &sd_emmc_c {
