@@ -248,6 +248,24 @@
 			};
 		};
 	};
+
+	leds {
+		compatible = "pwm-leds";
+		status = "okay";
+
+		led {
+			label = "sys_led";
+			pwms = <&pwm_gh 0 1000000 0>;
+			max-brightness = <255>;
+			default-state = "off";
+		};
+	};
+};
+
+&pwm_gh {
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm_g_pins>;
 };
 
 &pwm_ij {
