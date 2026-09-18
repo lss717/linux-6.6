@@ -195,6 +195,7 @@
 
 	i2c-led {
 		compatible = "i2c-gpio";
+		status = "disabled";
 		sda-gpios = <&gpio GPIOA_14 GPIO_ACTIVE_HIGH>;
 		i2c-gpio,sda-output-only;
 		scl-gpios = <&gpio GPIOA_15 GPIO_ACTIVE_HIGH>;
@@ -247,6 +248,12 @@
 				function = LED_FUNCTION_WLAN;
 			};
 		};
+	};
+
+	openvfd {
+		compatible = "open,vfd";
+		dev_name = "openvfd";
+		status = "okay";
 	};
 
 	leds {
