@@ -33,9 +33,9 @@
 		spi2 = &spicc1;
 	};
 
-	memory {
+	memory@0 {
 		device_type = "memory";
-		linux,usable-memory = <0x0 0x000000 0x0 0x80000000>;
+		reg = <0x0 0x0 0x0 0xf0800000>;
 	};
 
 	chosen {
