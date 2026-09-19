@@ -31,6 +31,9 @@
 		i2c4 = &i2c4;
 		spi1 = &spicc0;
 		spi2 = &spicc1;
+		mmc0 = &sd_emmc_a;	/* SDIO WiFi (BCM4339) */
+		mmc1 = &sd_emmc_b;	/* SD card */
+		mmc2 = &sd_emmc_c;	/* eMMC */
 	};
 
 	memory@0 {
