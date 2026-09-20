@@ -264,6 +264,7 @@ struct rc_map *rc_map_get(const char *name);
 #define RC_MAP_HAUPPAUGE                 "rc-hauppauge"
 #define RC_MAP_HISI_POPLAR               "rc-hisi-poplar"
 #define RC_MAP_HISI_TV_DEMO              "rc-hisi-tv-demo"
+#define RC_MAP_HK1_RBOX_X4               "rc-hk1-rbox-x4"
 #define RC_MAP_IMON_MCE                  "rc-imon-mce"
 #define RC_MAP_IMON_PAD                  "rc-imon-pad"
 #define RC_MAP_IMON_RSC                  "rc-imon-rsc"

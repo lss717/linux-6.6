@@ -59,6 +59,7 @@ obj-$(CONFIG_RC_MAP) += \
 			rc-hauppauge.o \
 			rc-hisi-poplar.o \
 			rc-hisi-tv-demo.o \
+			rc-hk1-rbox-x4.o \
 			rc-imon-mce.o \
 			rc-imon-pad.o \
 			rc-imon-rsc.o \
