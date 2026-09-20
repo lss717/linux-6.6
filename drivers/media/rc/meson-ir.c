@@ -5,6 +5,7 @@
  * Copyright (C) 2014 Beniamino Galvani <b.galvani@gmail.com>
  */
 
+#include <linux/clk.h>
 #include <linux/device.h>
 #include <linux/err.h>
 #include <linux/interrupt.h>
@@ -53,6 +54,7 @@
 struct meson_ir {
 	struct regmap	*reg;
 	struct rc_dev	*rc;
+	struct clk	*clk;
 	spinlock_t	lock;
 };
 
@@ -96,6 +98,12 @@ static int meson_ir_probe(struct platform_device *pdev)
 	ir = devm_kzalloc(dev, sizeof(struct meson_ir), GFP_KERNEL);
 	if (!ir)
 		return -ENOMEM;
+
+	/* Some SoCs (e.g. SC2) gate the IR block behind a clock */
+	ir->clk = devm_clk_get_optional_enabled(dev, NULL);
+	if (IS_ERR(ir->clk))
+		return dev_err_probe(dev, PTR_ERR(ir->clk),
+				     "failed to get/enable clock\n");
 
 	res_start = devm_platform_ioremap_resource(pdev, 0);
 	if (IS_ERR(res_start))
