@@ -611,6 +611,14 @@
 				assigned-clock-rates = <100000000>;
 				#phy-cells = <1>;
 			};
+
+			ir: ir@84040 {
+				compatible = "amlogic,meson-gxbb-ir";
+				reg = <0x0 0x84040 0x0 0xa4>;
+				interrupts = <GIC_SPI 22 IRQ_TYPE_EDGE_RISING>;
+				clocks = <&clkc CLKID_IR_CTRL>;
+				status = "disabled";
+			};
 		};
 
 		sd_emmc_c: mmc@fe08c000 {
