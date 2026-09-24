@@ -558,6 +558,16 @@
 &uart_E {
 	status = "okay";
 	uart-has-rtscts;
+
+	bluetooth {
+		compatible = "brcm,bcm4335a0";
+		shutdown-gpios = <&gpio GPIOX_17 GPIO_ACTIVE_HIGH>;
+		max-speed = <2000000>;
+		clocks = <&wifi32k>;
+		clock-names = "lpo";
+		vbat-supply = <&vdd_3v3>;
+		vddio-supply = <&vdd_1v8>;
+	};
 };
 
 &hdmi_tx_tmds_port {
